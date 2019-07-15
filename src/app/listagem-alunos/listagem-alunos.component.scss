@@ -1,0 +1,16 @@
+th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 5px;
+}
+
+.row {
+    width: 100%;
+    display: table;
+}
+
+.column {
+    width: 50%;
+}

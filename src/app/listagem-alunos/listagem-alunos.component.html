@@ -1,0 +1,40 @@
+<div class="row">
+    <canvas id="myChart" style="width: 30%;">
+        {{ chart }}
+    </canvas>
+    <app-detalhe-pessoa></app-detalhe-pessoa>
+    
+    <label for="series">Séries</label>
+    <select name="series" id="series" (change)="filtraSerie()" [(ngModel)]="serieBuscada">
+        <option value=""></option>
+        <option *ngFor="let serie of series" [value]="serie.id">
+            {{ serie.name }}
+        </option>
+    </select>
+    
+    <label for='classes'>Classes</label>
+    <select name="classes" id="classes" (change)="filtraClasse()" [(ngModel)]="classeBuscada">
+        <option value=""></option>
+        <option *ngFor="let classe of classes" [value]="classe.id">
+            {{ classe.name }}
+        </option>
+    </select>
+    
+    <button style="align-items: center;" type="button" (click)="geraNovosAlunos()">Gerar +300</button>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Serie</th>
+                <th>Classe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let aluno of alunoMontado | filtraNome:termoBuscado">
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.serie }}</td>
+                <td>{{ aluno.classe }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
